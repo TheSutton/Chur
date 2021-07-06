@@ -8,9 +8,12 @@ public class GaperMove : MonoBehaviour
     public float speed = 1.0f;
     public float RSpeed = 1.0f;
     public Transform Player;
+    public bool Iftouch = false;
+    public float Waiter = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
+      
         Player = GameObject.Find("OVRPlayerController").transform;
     }
 
@@ -26,5 +29,28 @@ public class GaperMove : MonoBehaviour
         Vector3 NewDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
         Debug.DrawRay(transform.position, NewDirection, Color.red);
         transform.rotation = Quaternion.LookRotation(NewDirection);
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        Iftouch = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            print("yeah");
+           
+            if (Iftouch == true)
+            {                
+                if (Waiter > 0f)
+                {
+                    Waiter -= Time.deltaTime;
+                    speed = 0f;
+                }
+                else if (Waiter <= 0)
+                {
+                    Waiter = 1;
+                    speed = 1.0f;
+                    Iftouch = false;
+                }
+            }
+        }
     }
 }
