@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-           if(GameObject.FindGameObjectsWithTag("Speed").Length == 0 && GameObject.FindGameObjectsWithTag("Health").Length == 0 && GameObject.FindGameObjectsWithTag("Scale").Length == 0)
+           while(GameObject.FindGameObjectsWithTag("Speed").Length == 0 && GameObject.FindGameObjectsWithTag("Health").Length == 0 && GameObject.FindGameObjectsWithTag("Scale").Length == 0)
             {
                 SpawnPowerups();
               
@@ -81,5 +82,13 @@ public class GameManager : MonoBehaviour
             }
         }
      }
-
+    public void Starting()
+    {
+        IsGameActive = true;
+        SpawnNewEnemy();
+    }
+    public void EndRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

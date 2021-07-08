@@ -5,28 +5,24 @@ using UnityEngine;
 public class FlyMove : MonoBehaviour
 {
     public float speed;
+    public GameObject Fly1;
+    public GameObject Fly2;
     // Start is called before the first frame update
     void Start()
     {
-        speed = 1f;
-        StartCoroutine(Timer());
+        Fly1.SetActive(true);
+        Fly2.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+       if(Fly1.SetActive(true)
+        {
+
+        }
     }
 
-    IEnumerator Timer()
-    {
-        transform.Translate(Vector3.up * Time.deltaTime * speed);
-        print("yeah");
-        yield return new WaitForSeconds(3);
-        print("nah");
-        transform.Translate(Vector3.down * Time.deltaTime * speed);
-        yield return new WaitForSeconds(3);
-        
-    }
+   
     
 }

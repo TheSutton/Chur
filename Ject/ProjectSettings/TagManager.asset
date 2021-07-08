@@ -9,6 +9,8 @@ TagManager:
   - Speed
   - Scale
   - Health
+  - 'Start '
+  - End
   layers:
   - Default
   - TransparentFX

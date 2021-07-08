@@ -12,8 +12,10 @@ public class IsaacManager : MonoBehaviour
     private Player PlayerScript;
     public GameManager gameManager;
     public GameObject StartButton;
-   
-    
+    public GameObject EndButton;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +24,14 @@ public class IsaacManager : MonoBehaviour
         GameObject Tear = GameObject.Find("Tear");
         tears.transform.localScale = new Vector3(1, 1, 1);
         Scale = new Vector3(1.5f, 1.5f, 1.5f);
+        gameManager.enabled = false;
+        EndButton.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,8 +40,8 @@ public class IsaacManager : MonoBehaviour
         {
             gameManager.EnemySpawn();
             Destroy(other.gameObject);
-            tearShotScript.FireTimer = tearShotScript.FireTimer =- 0.5f;
-            
+            tearShotScript.FireTimer = tearShotScript.FireTimer = -0.5f;
+            print("speed");
         }
         if (other.gameObject.CompareTag("Scale"))
         {
@@ -46,19 +50,35 @@ public class IsaacManager : MonoBehaviour
             if (Scale != (new Vector3(6f, 6f, 6f)))
             {
                 tears.transform.localScale += Scale;
+                print("Scale");
             }
-            
+
         }
         if (other.gameObject.CompareTag("Health"))
         {
             gameManager.EnemySpawn();
             PlayerScript.HealthUp();
             Destroy(other.gameObject);
+            print("Health");
         }
-        
-    }
-    public void gameOber()
-    {
+        if (other.gameObject.CompareTag("Start "))
+        {
+            print("wtf");
+            StartButton.SetActive(false);
+            gameManager.enabled = true;
+            gameManager.Starting();
+            
+        }
+        if(PlayerScript.Health == 0)
+        {
+            EndButton.SetActive(true);
+            gameManager.enabled = false;
+            if (other.gameObject.CompareTag("End"))
+            {
+                gameManager.EndRestart();
+            }
+        }
+      
 
     }
 }
