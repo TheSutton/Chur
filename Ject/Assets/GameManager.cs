@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,11 +36,19 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnNewEnemy()
     {
-
+       
         int Enemy = Random.Range(0, Enemies.Count);
         int Spawns = Random.Range(0, Spawnpoints.Count);
         Vector3 spawnPos = new Vector3(0.02f,1.575f,8.38f);
-        Instantiate(Enemies[Enemy], spawnPos, Enemies[Enemy].transform.rotation);
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1)
+        {
+            Vector3 spawnPos2 = new Vector3(0.02f, 1.575f, -8.38f);
+            Instantiate(Enemies[Enemy], spawnPos2, Enemies[Enemy].transform.rotation);
+        }
+        else if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0){
+            Instantiate(Enemies[Enemy], spawnPos, Enemies[Enemy].transform.rotation);
+        }
+        
     }
     public void SpawnPowerups()
     {
@@ -59,24 +66,9 @@ public class GameManager : MonoBehaviour
     }
     public void EnemySpawn()
     {
-        if (GameObject.FindGameObjectsWithTag("Speed").Length == 0)
+        if (GameObject.FindGameObjectsWithTag("Speed").Length == 0 || (GameObject.FindGameObjectsWithTag("Scale").Length == 0) || (GameObject.FindGameObjectsWithTag("Health").Length == 0))
         {
-            for (SpawnAmount = 0; SpawnAmount < 1; SpawnAmount++)
-            {
-                SpawnNewEnemy();
-            }
-
-        }
-        if ((GameObject.FindGameObjectsWithTag("Health").Length == 0))
-        {
-            for (SpawnAmount = 0; SpawnAmount < 1; SpawnAmount++)
-            {
-                SpawnNewEnemy();
-            }
-        }
-        if ((GameObject.FindGameObjectsWithTag("Scale").Length == 0))
-        {
-            for (SpawnAmount = 0; SpawnAmount < 1; SpawnAmount++)
+            for (SpawnAmount = 0; SpawnAmount < 2; SpawnAmount++)
             {
                 SpawnNewEnemy();
             }

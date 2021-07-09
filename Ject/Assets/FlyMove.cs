@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyMove : MonoBehaviour
+public class Flymoe : MonoBehaviour
 {
     public float speed;
     public GameObject Fly1;
@@ -17,7 +17,7 @@ public class FlyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Fly1.SetActive(true)
+      // if(Fly1.SetActive(false))
         {
 
         }
