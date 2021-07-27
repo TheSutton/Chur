@@ -31,7 +31,11 @@ public class IsaacManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
+        if (PlayerScript.Health == 0)
+        { 
+            Destroy(GameObject.FindWithTag("Enemy"));
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,6 +75,7 @@ public class IsaacManager : MonoBehaviour
         }
         if(PlayerScript.Health == 0)
         {
+           
             EndButton.SetActive(true);
             gameManager.enabled = false;
             if (other.gameObject.CompareTag("End"))

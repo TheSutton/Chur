@@ -23,9 +23,6 @@ public class TearMove : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.gameObject.CompareTag("enemy"))
-        {
-            Destroy(other.gameObject);
-        }
+       
     }
 }

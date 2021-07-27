@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flymoe : MonoBehaviour
+public class FlyMove : MonoBehaviour
 {
     public float speed;
     public GameObject Fly1;

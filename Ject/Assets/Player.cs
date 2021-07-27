@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     {
         if (CompareTag("Enemy"))
         {
+            print("yeah");
             HealthDown();
         }
     }

@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 1515444463569110681}
   - component: {fileID: 1515444463569110680}
   - component: {fileID: 1515444463569110683}
+  - component: {fileID: 1366282682}
   m_Layer: 0
   m_Name: Fly
   m_TagString: Enemy
@@ -465,11 +466,28 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515444463569110682}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.8681307
   m_Center: {x: 0, y: 0, z: 0.36813074}
+--- !u!114 &1366282682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515444463569110682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0d9d0c20ec62b448ba0bdae0ebeb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  RSpeed: 1
+  Player: {fileID: 0}
+  Iftouch: 0
+  Waiter: 1.5
 --- !u!1 &1515444463776652214
 GameObject:
   m_ObjectHideFlags: 0

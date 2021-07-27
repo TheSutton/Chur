@@ -9,7 +9,8 @@ public class GaperMove : MonoBehaviour
     public float RSpeed = 1.0f;
     public Transform Player;
     public bool Iftouch = false;
-    public float Waiter = 1.5f;
+    public float Waiter = 1f;
+    public float EnemyHealt = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,35 +23,50 @@ public class GaperMove : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, Player.position, step);
+        if(EnemyHealt == 0)
+        {
+            Destroy(gameObject);
+        }
 
-        
-        Vector3 targetDirection = Player.position - transform.position;
-        float singleStep = RSpeed * Time.deltaTime;
-        Vector3 NewDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-        Debug.DrawRay(transform.position, NewDirection, Color.red);
-        transform.rotation = Quaternion.LookRotation(NewDirection);
+        if (Iftouch == true)
+        {
+            if (Waiter > 0f)
+            {
+                Waiter -= Time.deltaTime;
+                speed = 0f;
+            }
+            else if (Waiter <= 0)
+            {
+                Waiter = 1;
+                speed = 1.0f;
+                Iftouch = false;
+            }
+
+            Vector3 targetDirection = Player.position - transform.position;
+            float singleStep = RSpeed * Time.deltaTime;
+            Vector3 NewDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+            Debug.DrawRay(transform.position, NewDirection, Color.red);
+            transform.rotation = Quaternion.LookRotation(NewDirection);
+        }
     }
-    public void OnTriggerEnter(Collider other)
+     private void OnTriggerEnter(Collider other)
     {
+
+        if (CompareTag("Tear"))
+        {
+            EnemyHealthDown();
+        }
+
         Iftouch = true;
         if (other.gameObject.CompareTag("Player"))
         {
-            print("yeah");
-           
-            if (Iftouch == true)
-            {                
-                if (Waiter > 0f)
-                {
-                    Waiter -= Time.deltaTime;
-                    speed = 0f;
-                }
-                else if (Waiter <= 0)
-                {
-                    Waiter = 1;
-                    speed = 1.0f;
-                    Iftouch = false;
-                }
+            print("chur");
+
             }
         }
+    private void EnemyHealthDown()
+    {
+        EnemyHealt = EnemyHealt - 1;
     }
-}
+    }
+
