@@ -52,17 +52,17 @@ public class GaperMove : MonoBehaviour
      private void OnTriggerEnter(Collider other)
     {
 
-        if (CompareTag("Tear"))
+        if (other.gameObject.CompareTag("Tear"))
         {
             EnemyHealthDown();
         }
-
         Iftouch = true;
+
         if (other.gameObject.CompareTag("Player"))
         {
             print("chur");
-
-            }
+            
+        }
         }
     private void EnemyHealthDown()
     {

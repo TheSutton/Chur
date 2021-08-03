@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             print("yeah");
             HealthDown();

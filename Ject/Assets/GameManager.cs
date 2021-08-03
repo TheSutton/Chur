@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private Player PlayerScript;
     public bool IsGameActive;
     public float SpawnAmount = 0;
+    public float roundTimer = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,11 @@ public class GameManager : MonoBehaviour
         int Enemy = Random.Range(0, Enemies.Count);
         int Spawns = Random.Range(0, Spawnpoints.Count);
         Vector3 spawnPos = new Vector3(0.02f,1.575f,8.38f);
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length >= 2)
+        {
+            Vector3 spawnPosRand = new Vector3(Random.Range(-6f,5.8f), 1.575f, Random.Range(-7f,6.31f));
+            Instantiate(Enemies[Enemy], spawnPosRand, Enemies[Enemy].transform.rotation);
+        }
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1)
         {
             Vector3 spawnPos2 = new Vector3(0.02f, 1.575f, -8.38f);
@@ -68,10 +74,13 @@ public class GameManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Speed").Length == 0 || (GameObject.FindGameObjectsWithTag("Scale").Length == 0) || (GameObject.FindGameObjectsWithTag("Health").Length == 0))
         {
-            for (SpawnAmount = 0; SpawnAmount < 2; SpawnAmount++)
+            print(roundTimer);
+            for (SpawnAmount = 0; SpawnAmount < roundTimer; SpawnAmount++)
             {
                 SpawnNewEnemy();
+                
             }
+            roundTimer = roundTimer + 1;
         }
      }
     public void Starting()
