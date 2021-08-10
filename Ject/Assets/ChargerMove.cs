@@ -9,6 +9,7 @@ public class ChargerMove : MonoBehaviour
     public float speed = 5;
     public int health = 10;
     public float RotateY;
+    public float GaperHelth = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,10 @@ public class ChargerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GaperHelth == 0)
+        {
+            Destroy(gameObject);
+        }
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
         if (RotateY < 90) ;
         {
@@ -35,10 +40,19 @@ public class ChargerMove : MonoBehaviour
     {
         if(other.gameObject.CompareTag("wall"))
         {
-            print(RotateY);
+            
             RotateY = Random.Range(-180, 180);
             transform.Rotate(new Vector3( 0, RotateY, 0));
         }
-    }
 
+        if (other.gameObject.CompareTag("Tear"))
+        {
+            HealthDown();
+            print("TearHitCharger");
+        }
+    }
+    public void HealthDown()
+    {
+        GaperHelth = GaperHelth - 1;
+    }
 }

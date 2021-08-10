@@ -55,6 +55,7 @@ public class GaperMove : MonoBehaviour
         if (other.gameObject.CompareTag("Tear"))
         {
             EnemyHealthDown();
+            print("tearhitGaper/fly");
         }
         Iftouch = true;
 

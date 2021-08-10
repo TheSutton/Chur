@@ -19,10 +19,11 @@ public class TearMove : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("wall"))
         {
+            print("wallHit");
             Destroy(gameObject);
         }
-       
+
     }
 }

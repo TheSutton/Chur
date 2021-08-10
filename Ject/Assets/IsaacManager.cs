@@ -67,7 +67,7 @@ public class IsaacManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Start "))
         {
-            print("wtf");
+
             StartButton.SetActive(false);
             gameManager.enabled = true;
             gameManager.Starting();

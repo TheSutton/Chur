@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> PowerUps;
-    public List<GameObject> Spawnpoints;
     public List<GameObject> Enemies;
     public GameObject OvrPlayer;
     private Player PlayerScript;
@@ -39,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
        
         int Enemy = Random.Range(0, Enemies.Count);
-        int Spawns = Random.Range(0, Spawnpoints.Count);
+       
         Vector3 spawnPos = new Vector3(0.02f,1.575f,8.38f);
         if (GameObject.FindGameObjectsWithTag("Enemy").Length >= 2)
         {
