@@ -14,19 +14,21 @@ public class GaperMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        EnemyHealt = 3;
         Player = GameObject.Find("OVRPlayerController").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, Player.position, step);
-        if(EnemyHealt == 0)
+        if (EnemyHealt <= 0)
         {
             Destroy(gameObject);
         }
+
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, Player.position, step);
+       
 
         if (Iftouch == true)
         {
@@ -57,15 +59,15 @@ public class GaperMove : MonoBehaviour
             EnemyHealthDown();
             print("tearhitGaper/fly");
         }
-        Iftouch = true;
+     
 
         if (other.gameObject.CompareTag("Player"))
         {
             print("chur");
-            
+            Iftouch = true;
         }
         }
-    private void EnemyHealthDown()
+    public void EnemyHealthDown()
     {
         EnemyHealt = EnemyHealt - 1;
     }

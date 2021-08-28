@@ -13,7 +13,7 @@ public class ChargerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         
+        GaperHelth = 3; 
         
 
     }

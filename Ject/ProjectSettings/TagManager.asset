@@ -12,6 +12,7 @@ TagManager:
   - 'Start '
   - End
   - Tear
+  - Enemy2
   layers:
   - Default
   - TransparentFX

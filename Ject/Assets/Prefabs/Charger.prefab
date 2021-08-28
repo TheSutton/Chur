@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 4698546010605816314}
   m_Layer: 0
   m_Name: Charger
-  m_TagString: Enemy
+  m_TagString: Enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,6 +349,7 @@ MonoBehaviour:
   speed: 3
   health: 10
   RotateY: 0
+  GaperHelth: 3
 --- !u!1 &8344677896032036441
 GameObject:
   m_ObjectHideFlags: 0
