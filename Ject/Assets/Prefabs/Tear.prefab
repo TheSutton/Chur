@@ -3601,7 +3601,7 @@ GameObject:
   - component: {fileID: 6486007307615005470}
   m_Layer: 0
   m_Name: Tear
-  m_TagString: Untagged
+  m_TagString: Tear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3634,7 +3634,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa79cc1a7419fd4895c2dc0d8a4ed0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gaper: {fileID: 3838268451508728319, guid: 43ae2a9d4df94fb47b5a7fb8acba4267, type: 3}
+  GaperMoveScript: {fileID: 0}
   speed: 40
+  Charger: {fileID: 4698546010605816315, guid: 39b31739e1375024786b6708dff0d782, type: 3}
+  ChargerMoveScript: {fileID: 0}
 --- !u!136 &2384318988338897496
 CapsuleCollider:
   m_ObjectHideFlags: 0

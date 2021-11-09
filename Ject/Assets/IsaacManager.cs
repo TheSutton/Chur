@@ -31,7 +31,7 @@ public class IsaacManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //This Kills the enemy when hit 3 times 
         if (PlayerScript.Health == 0)
         { 
             Destroy(GameObject.FindWithTag("Enemy"));
@@ -40,8 +40,10 @@ public class IsaacManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //these are all the powerup scripts
         if (other.gameObject.CompareTag("Speed"))
         {
+            //this shortens the time between shots of the tears
             gameManager.EnemySpawn();
             Destroy(other.gameObject);
             tearShotScript.FireTimer = tearShotScript.FireTimer = -0.5f;
@@ -49,6 +51,7 @@ public class IsaacManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Scale"))
         {
+            //this changed the scale of the tears by 1.5 each time the powerup is picked up and stops when a max of 6 is reached 
             gameManager.EnemySpawn();
             Destroy(other.gameObject);
             if (Scale != (new Vector3(6f, 6f, 6f)))
@@ -60,6 +63,7 @@ public class IsaacManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Health"))
         {
+            //this ups the health of the player by 1 and max of 3
             gameManager.EnemySpawn();
             PlayerScript.HealthUp();
             Destroy(other.gameObject);
@@ -67,7 +71,7 @@ public class IsaacManager : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Start "))
         {
-
+            //this starts the game
             StartButton.SetActive(false);
             gameManager.enabled = true;
             gameManager.Starting();
@@ -75,7 +79,7 @@ public class IsaacManager : MonoBehaviour
         }
         if(PlayerScript.Health == 0)
         {
-           
+           //when the player dies the restart button appears 
             EndButton.SetActive(true);
             gameManager.enabled = false;
             if (other.gameObject.CompareTag("End"))

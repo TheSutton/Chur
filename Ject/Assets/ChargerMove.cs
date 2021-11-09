@@ -34,7 +34,7 @@ public class ChargerMove : MonoBehaviour
         {
             RotateY = 180;
         }
-
+        //changes the rotation of the charger between 180 and -180 unless its between 90 and -90 then it turns around, this is so it doesnt get stuck in conrners 
     }
     private void OnTriggerEnter(Collider other)
     {

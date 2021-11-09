@@ -23,6 +23,7 @@ public class TearMove : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        //makes the tear destroy itself when hitting anything 
         if (other.gameObject.CompareTag("wall"))
         {
             print("wallHit");

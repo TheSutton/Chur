@@ -28,7 +28,7 @@ public class GaperMove : MonoBehaviour
 
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, Player.position, step);
-       
+       //moves towards the player
 
         if (Iftouch == true)
         {
@@ -43,7 +43,7 @@ public class GaperMove : MonoBehaviour
                 speed = 1.0f;
                 Iftouch = false;
             }
-
+            //this is the movement for Gaper and it moves it towards the player and rotates him towards the player makeing the following motion 
             Vector3 targetDirection = Player.position - transform.position;
             float singleStep = RSpeed * Time.deltaTime;
             Vector3 NewDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
