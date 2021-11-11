@@ -36,6 +36,10 @@ public class IsaacManager : MonoBehaviour
         { 
             Destroy(GameObject.FindWithTag("Enemy"));
         }
+        if (gameObject.transform.position.y <= -1)
+        {
+            gameManager.EndRestart();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -9,11 +9,11 @@ public class ChargerMove : MonoBehaviour
     public float speed = 5;
     public int health = 10;
     public float RotateY;
-    public float GaperHelth = 3;
+    public float ChargerHealth = 3;
     // Start is called before the first frame update
     void Start()
     {
-        GaperHelth = 3; 
+        ChargerHealth = 3; 
         
 
     }
@@ -21,7 +21,12 @@ public class ChargerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GaperHelth == 0)
+         if (gameObject.transform.position.y <= -1)
+        {
+            Destroy(gameObject);
+        }
+
+        if(ChargerHealth == 0)
         {
             Destroy(gameObject);
         }
@@ -53,6 +58,6 @@ public class ChargerMove : MonoBehaviour
     }
     public void HealthDown()
     {
-        GaperHelth = GaperHelth - 1;
+        ChargerHealth = ChargerHealth - 1;
     }
 }

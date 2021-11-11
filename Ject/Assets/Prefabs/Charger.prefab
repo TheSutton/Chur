@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 4698546010605816312}
   - component: {fileID: 4698546010605816313}
   - component: {fileID: 4698546010605816314}
+  - component: {fileID: 216177178}
   m_Layer: 0
   m_Name: Charger
   m_TagString: Enemy2
@@ -349,7 +350,21 @@ MonoBehaviour:
   speed: 3
   health: 10
   RotateY: 0
-  GaperHelth: 3
+  ChargerHealth: 3
+--- !u!136 &216177178
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4698546010605816315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.4837706
+  m_Height: 2.0764146
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.3637706, z: 1.1400001}
 --- !u!1 &8344677896032036441
 GameObject:
   m_ObjectHideFlags: 0
